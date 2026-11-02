@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rakib TeCh Kyc | Shop deals on everything</title>
+<meta name="description" content="Rakib TeCh Kyc is an online store with daily deals on electronics, fashion, home, beauty, sports and books.">
+<style>
+/* To customize: change the colors below, the store name in the HTML, and the product list in the script. */
+:root{--bg:#eef0f4;--surface:#fff;--ink:#1b2433;--muted:#5d6779;--line:#d9dee7;--bar:#14213d;--bar2:#1d2e52;--on-bar:#fff;--accent:#ffb703;--on-accent:#14213d;--deal:#b4231f;--link:#0b5fb3}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1220;--surface:#151d30;--ink:#e9eef7;--muted:#9aa7bd;--line:#26324b;--bar:#0a1020;--bar2:#111a30;--deal:#ff8a80;--link:#6db3ff}}
+:root[data-theme="dark"]{--bg:#0c1220;--surface:#151d30;--ink:#e9eef7;--muted:#9aa7bd;--line:#26324b;--bar:#0a1020;--bar2:#111a30;--deal:#ff8a80;--link:#6db3ff}
+*{box-sizing:border-box;margin:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(12px + env(safe-area-inset-top,0px))}
+body{font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bar)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 14px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:var(--on-accent);border:0;border-radius:8px;padding:10px 18px;cursor:pointer}
+.btn:hover{filter:brightness(1.07)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* Header */
+header{background:var(--bar);color:var(--on-bar);z-index:30}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding-top:10px;padding-bottom:10px}
+.logo{font-size:clamp(1.3rem,5.5vw,1.6rem);font-weight:800;color:inherit;text-decoration:none;letter-spacing:-.02em}
+.logo b{color:var(--accent)}
+.search{order:3;flex:1 1 100%;display:flex;border-radius:8px;overflow:hidden}
+.search select,.search input,.search button{font:inherit;border:0;padding:10px 12px;color:#1b2433;background:#fff}
+.search select{background:#e9ecf2;max-width:112px}
+.search input{flex:1;min-width:0}
+.search button{background:var(--accent);padding:0 16px;cursor:pointer}
+.cartbtn{margin-left:auto;font:inherit;font-size:1.05rem;color:inherit;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:6px}
+.cartbtn span{background:var(--accent);color:var(--on-accent);border-radius:99px;padding:0 8px;font-weight:700;font-size:.85rem}
+.sub{background:var(--bar2);overflow-x:auto;white-space:nowrap}
+.sub .wrap{display:flex;gap:4px;padding-top:6px;padding-bottom:6px}
+.sub button{flex:none;font:inherit;color:var(--on-bar);background:none;border:1px solid transparent;border-radius:6px;padding:6px 12px;cursor:pointer}
+.sub button:hover,.sub button[aria-pressed=true]{border-color:var(--accent)}
+
+/* Hero and categories */
+.hero{background:linear-gradient(135deg,#1d4e89,#14213d 70%);color:#fff;padding:44px 0 110px}
+.hero h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.1;max-width:18ch;letter-spacing:-.02em}
+.hero p{margin:12px 0 20px;max-width:46ch;color:#d5deee;font-size:1.05rem}
+.hero p a{color:inherit;font-weight:700}
+.cats{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:-80px;position:relative}
+.cat{background:var(--surface);padding:16px;border-radius:6px}
+.cat h2{font-size:1.15rem;margin-bottom:10px}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:2rem;text-align:center}
+.mini span{background:var(--bg);border-radius:6px;padding:10px 0}
+.cat button{margin-top:12px;font:inherit;color:var(--link);background:none;border:0;padding:0;cursor:pointer}
+.cat button:hover{text-decoration:underline}
+
+/* Products */
+.tools{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin:30px 0 14px}
+.tools h2{font-size:1.4rem}
+.tools small{color:var(--muted);font-size:.95rem;font-weight:400;margin-left:8px}
+.sort{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--surface);border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.pic{display:grid;place-items:center;font-size:4.2rem;height:150px;border-radius:6px;background:var(--bg)}
+.card h3{font-size:.98rem;font-weight:500}
+.stars{color:#e08a00;font-size:.95rem}
+.stars small{color:var(--link);margin-left:4px}
+.price{font-size:1.4rem;font-weight:600}
+.price s{font-size:.9rem;color:var(--muted);font-weight:400;margin-left:6px}
+.off{color:var(--deal);font-weight:600;font-size:.9rem}
+.card .btn{margin-top:auto}
+.empty{grid-column:1/-1;padding:40px 0;text-align:center;color:var(--muted)}
+
+/* Cart drawer */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:40;display:none}
+.scrim.open{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--surface);z-index:41;transform:translateX(100%);visibility:hidden;transition:transform .25s,visibility .25s;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.open{transform:none;visibility:visible}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
+.dh h2{font-size:1.2rem}
+.x{font:inherit;font-size:1.6rem;background:none;border:0;color:inherit;cursor:pointer}
+.items{flex:1;overflow:auto;padding:8px 16px}
+.it{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.it .e{font-size:2rem;text-align:center}
+.qty{display:flex;align-items:center;gap:8px;margin-top:4px}
+.qty button{width:28px;height:28px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:inherit;cursor:pointer;font:inherit}
+.qty .rm{width:auto;height:auto;border:0;background:none;color:var(--link);padding:0 0 0 6px}
+.df{padding:16px;border-top:1px solid var(--line)}
+.tot{display:flex;justify-content:space-between;font-size:1.15rem;font-weight:600;margin-bottom:10px}
+.df .btn{width:100%}
+#msg{margin-top:10px;color:var(--muted);font-size:.9rem}
+
+/* Footer */
+.totop{display:block;background:var(--bar2);color:#fff;text-align:center;padding:14px;margin-top:40px;text-decoration:none}
+footer{background:var(--bar);color:#c9d3e6;padding:36px 0 20px}
+footer .wrap{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+footer h3{color:#fff;font-size:1rem;margin-bottom:8px}
+footer a{display:block;color:inherit;text-decoration:none;padding:3px 0}
+footer a:hover{text-decoration:underline}
+.copy{text-align:center;font-size:.85rem;padding-top:22px;color:#8f9bb3}
+
+@media(min-width:760px){
+.search{order:0;flex:1 1 auto}
+.cartbtn{margin-left:0}
+header{position:sticky;top:env(safe-area-inset-top,0px)}
+html{scroll-padding-top:calc(110px + env(safe-area-inset-top,0px))}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.drawer{transition:none}}
+</style>
+</head>
+<body id="top">
+<header>
+  <div class="wrap top">
+    <a class="logo" href="#top">Rakib <b>TeCh Kyc</b></a>
+    <form class="search" id="sf" role="search">
+      <select id="cat" aria-label="Category">
+        <option value="all">All</option>
+        <option value="electronics">Electronics</option>
+        <option value="fashion">Fashion</option>
+        <option value="home">Home</option>
+        <option value="beauty">Beauty</option>
+        <option value="sports">Sports</option>
+        <option value="books">Books</option>
+      </select>
+      <input id="q" type="search" placeholder="Search products" aria-label="Search products">
+      <button aria-label="Search">🔍</button>
+    </form>
+    <button class="cartbtn" id="cartbtn" aria-label="Open cart">🛒 Cart <span id="cnt">0</span></button>
+  </div>
+  <nav class="sub" aria-label="Categories">
+    <div class="wrap">
+      <button data-cat="all">All</button>
+      <button data-cat="electronics">Electronics</button>
+      <button data-cat="fashion">Fashion</button>
+      <button data-cat="home">Home</button>
+      <button data-cat="beauty">Beauty</button>
+      <button data-cat="sports">Sports</button>
+      <button data-cat="books">Books</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Big savings on everyday essentials</h1>
+    <p>Free delivery on orders over $50. New deals every day. Need help? Call <a href="tel:+14101457421">+1 410 145 7421</a>.</p>
+    <button class="btn" data-cat="all">Shop today’s deals</button>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="cats">
+    <div class="cat"><h2>Electronics</h2><div class="mini"><span>🎧</span><span>⌚</span><span>🔋</span><span>📱</span></div><button data-cat="electronics">See all electronics</button></div>
+    <div class="cat"><h2>Fashion</h2><div class="mini"><span>👟</span><span>🎒</span><span>🕶️</span><span>🧥</span></div><button data-cat="fashion">See all fashion</button></div>
+    <div class="cat"><h2>Home</h2><div class="mini"><span>☕</span><span>💡</span><span>🪴</span><span>🛋️</span></div><button data-cat="home">See all for home</button></div>
+    <div class="cat"><h2>Beauty</h2><div class="mini"><span>🧴</span><span>💄</span><span>🪞</span><span>🧼</span></div><button data-cat="beauty">See all beauty</button></div>
+  </div>
+
+  <div class="tools" id="shop">
+    <h2><span id="ttl">Today’s deals</span><small id="count"></small></h2>
+    <select class="sort" id="sort" aria-label="Sort products">
+      <option value="featured">Sort: Featured</option>
+      <option value="low">Price: low to high</option>
+      <option value="high">Price: high to low</option>
+      <option value="rating">Best rated</option>
+    </select>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<a class="totop" href="#top">Back to top</a>
+<footer>
+  <div class="wrap">
+    <div><h3>About us</h3><a href="#top">Our story</a><a href="#top">Careers</a><a href="#top">Press</a></div>
+    <div><h3>Sell with us</h3><a href="#top">Become a seller</a><a href="#top">Advertise</a></div>
+    <div><h3>Help</h3><a href="#top">Shipping</a><a href="#top">Returns</a><a href="tel:+14101457421">Call us: +1 410 145 7421</a></div>
+  </div>
+  <p class="copy">© <span id="yr">2026</span> Rakib TeCh Kyc. All rights reserved.</p>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="dh"><h2>Your cart</h2><button class="x" id="close" aria-label="Close cart">×</button></div>
+  <div class="items" id="items"></div>
+  <div class="df">
+    <div class="tot"><span>Subtotal</span><span id="tot">$0.00</span></div>
+    <button class="btn" id="pay">Proceed to checkout</button>
+    <p id="msg" role="status"></p>
+  </div>
+</aside>
+
+<script>
+// To customize: change CUR (currency) and the product list P. Emoji stand in for product photos.
+var CUR = '$';
+var CATS = {electronics:'Electronics', fashion:'Fashion', home:'Home', beauty:'Beauty', sports:'Sports', books:'Books'};
+var P = [
+  {id:1,  n:'Wireless noise-cancelling headphones', c:'electronics', p:59.99, o:89.99, r:4.5, v:2314,  e:'🎧'},
+  {id:2,  n:'Smart watch with heart-rate tracking',  c:'electronics', p:79.00, o:120,   r:4.3, v:1052,  e:'⌚'},
+  {id:3,  n:'Power bank 20,000 mAh fast charge',     c:'electronics', p:24.99, o:34.99, r:4.6, v:8410,  e:'🔋'},
+  {id:4,  n:'Lightweight running shoes',             c:'fashion',     p:49.50, o:75,    r:4.4, v:3201,  e:'👟'},
+  {id:5,  n:'Everyday leather backpack',             c:'fashion',     p:64.00, o:0,     r:4.7, v:642,   e:'🎒'},
+  {id:6,  n:'Polarized sunglasses',                  c:'fashion',     p:18.99, o:29.99, r:4.2, v:987,   e:'🕶️'},
+  {id:7,  n:'Programmable coffee maker, 10 cups',    c:'home',        p:42.00, o:60,    r:4.5, v:5120,  e:'☕'},
+  {id:8,  n:'Dimmable LED table lamp',               c:'home',        p:21.50, o:0,     r:4.4, v:733,   e:'💡'},
+  {id:9,  n:'Indoor plant set of three',             c:'home',        p:29.00, o:38,    r:4.8, v:410,   e:'🪴'},
+  {id:10, n:'Vitamin C face serum',                  c:'beauty',      p:16.99, o:24.99, r:4.5, v:2876,  e:'🧴'},
+  {id:11, n:'Non-slip yoga mat',                     c:'sports',      p:22.00, o:30,    r:4.6, v:1934,  e:'🧘'},
+  {id:12, n:'Bestselling novel, paperback',          c:'books',       p:12.99, o:18.99, r:4.7, v:15230, e:'📚'}
+];
+var st = {cat:'all', q:'', sort:'featured'}, cart = {};
+try { cart = JSON.parse(localStorage.getItem('cart') || '{}'); } catch (e) { cart = {}; }
+var $ = function (i) { return document.getElementById(i); };
+var money = function (x) { return CUR + x.toFixed(2); };
+var stars = function (r) { var n = Math.round(r); return '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5 - n); };
+var find = function (id) { return P.filter(function (y) { return y.id == id; })[0]; };
+
+function render() {
+  var q = st.q.trim().toLowerCase();
+  var a = P.filter(function (x) {
+    return (st.cat === 'all' || x.c === st.cat) && (!q || x.n.toLowerCase().indexOf(q) > -1 || CATS[x.c].toLowerCase().indexOf(q) > -1);
+  });
+  if (st.sort === 'low') a.sort(function (x, y) { return x.p - y.p; });
+  if (st.sort === 'high') a.sort(function (x, y) { return y.p - x.p; });
+  if (st.sort === 'rating') a.sort(function (x, y) { return y.r - x.r; });
+  $('ttl').textContent = q ? 'Results for “' + st.q.trim() + '”' : (st.cat === 'all' ? 'Today’s deals' : CATS[st.cat]);
+  $('count').textContent = a.length + ' products';
+  $('grid').innerHTML = a.length ? a.map(function (x) {
+    var off = x.o ? Math.round((1 - x.p / x.o) * 100) : 0;
+    return '<article class="card"><div class="pic" aria-hidden="true">' + x.e + '</div><h3>' + x.n + '</h3>' +
+      '<div class="stars" aria-label="' + x.r + ' out of 5 stars">' + stars(x.r) + '<small>' + x.v.toLocaleString() + '</small></div>' +
+      '<div class="price">' + money(x.p) + (x.o ? '<s>' + money(x.o) + '</s>' : '') + '</div>' +
+      (off ? '<div class="off">Save ' + off + '%</div>' : '') +
+      '<button class="btn" data-add="' + x.id + '">Add to cart</button></article>';
+  }).join('') : '<p class="empty">No products match your search. Try a different word or choose another category.</p>';
+  document.querySelectorAll('.sub button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.cat === st.cat); });
+  $('cat').value = st.cat;
+}
+
+function go(cat) {
+  st.cat = cat; st.q = ''; $('q').value = '';
+  render();
+  $('shop').scrollIntoView();
+}
+
+function save() { try { localStorage.setItem('cart', JSON.stringify(cart)); } catch (e) {} }
+function openCart(o) {
+  $('drawer').classList.toggle('open', o);
+  $('scrim').classList.toggle('open', o);
+  $('drawer').setAttribute('aria-hidden', !o);
+}
+function cartUI() {
+  var n = 0, t = 0;
+  var ids = Object.keys(cart).filter(function (i) { return find(i); });
+  var h = ids.map(function (i) {
+    var x = find(i); n += cart[i]; t += cart[i] * x.p;
+    return '<div class="it"><div class="e">' + x.e + '</div><div><div>' + x.n + '</div><div class="qty">' +
+      '<button data-chg="' + i + '" data-d="-1" aria-label="One fewer">−</button><span>' + cart[i] + '</span>' +
+      '<button data-chg="' + i + '" data-d="1" aria-label="One more">+</button>' +
+      '<button class="rm" data-chg="' + i + '" data-d="-999">Remove</button></div></div><b>' + money(x.p * cart[i]) + '</b></div>';
+  }).join('');
+  $('items').innerHTML = h || '<p class="empty">Your cart is empty. Add something you like.</p>';
+  $('cnt').textContent = n; $('tot').textContent = money(t); $('pay').disabled = !n; $('msg').textContent = '';
+}
+function add(id) { cart[id] = (cart[id] || 0) + 1; save(); cartUI(); openCart(true); }
+function chg(id, d) { cart[id] = (cart[id] || 0) + d; if (cart[id] <= 0) delete cart[id]; save(); cartUI(); }
+
+document.addEventListener('click', function (e) {
+  var c = e.target.closest('[data-cat]'); if (c) go(c.dataset.cat);
+  var a = e.target.closest('[data-add]'); if (a) add(+a.dataset.add);
+  var m = e.target.closest('[data-chg]'); if (m) chg(m.dataset.chg, +m.dataset.d);
+});
+$('sf').addEventListener('submit', function (e) { e.preventDefault(); st.cat = $('cat').value; st.q = $('q').value; render(); $('shop').scrollIntoView(); });
+$('cat').addEventListener('change', function () { go(this.value); });
+$('sort').addEventListener('change', function () { st.sort = this.value; render(); });
+$('cartbtn').addEventListener('click', function () { openCart(true); });
+$('close').addEventListener('click', function () { openCart(false); });
+$('scrim').addEventListener('click', function () { openCart(false); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') openCart(false); });
+$('pay').addEventListener('click', function () { $('msg').textContent = 'Checkout is a demo. Connect a payment service such as Stripe to take real orders.'; });
+$('yr').textContent = new Date().getFullYear();
+render(); cartUI();
+</script>
+</body>
+</html>
